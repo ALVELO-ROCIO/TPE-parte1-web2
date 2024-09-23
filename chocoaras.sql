@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2024 a las 00:53:23
+-- Tiempo de generación: 23-09-2024 a las 15:25:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `chocolate` (
   `ID` int(11) NOT NULL,
   `SABOR` varchar(20) NOT NULL,
-  `RELLENO` int(20) NOT NULL,
+  `RELLENO` varchar(20) NOT NULL,
   `EMPAQUE` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
@@ -42,7 +42,7 @@ CREATE TABLE `chocolate` (
 
 CREATE TABLE `combos` (
   `ID` int(11) NOT NULL,
-  `NOMBRE` int(11) NOT NULL,
+  `NOMBRE` varchar(20) NOT NULL,
   `CANTIDAD` int(11) NOT NULL,
   `FK_CHOCOLATE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;

@@ -16,7 +16,15 @@ switch ($params[0]) {
         $controller = new ChocolatesController();
         $controller->mostrarChocolates();
         break;
+    case 'chocolates':
+        $controller = new ChocolatesController();
+        $controller->mostrarChocolates();
+        break;
+    case 'combosporchocolate':
+        $controller = new ChocolatesController();
+        $controller->mostrarCombosPorChocolate($params[1]);
+        break;
     default:
         echo "404 not found";
-        break;
+        break;   
 }

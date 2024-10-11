@@ -24,4 +24,14 @@ class ChocoModel {
     
         return $chocolates;
     }
+
+    public function getCombosPorChocolate($chocolate){
+        $sql = "select * from combos where FK_CHOCOLATE = $chocolate";
+        $query = $this->bd->prepare($sql);
+        $query->execute();
+    
+        $combos = $query->fetchAll(PDO::FETCH_OBJ);
+    
+        return $combos;
+    }
 } 

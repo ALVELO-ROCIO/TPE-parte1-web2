@@ -24,7 +24,12 @@ switch ($params[0]) {
         $controller = new ChocolatesController();
         $controller->mostrarCombosPorChocolate($params[1]);
         break;
+    
+    //case 'ver detalles':
+        //$controller = new ChocolatesController();
+        //$controller->getVerDetalles($params[1]);
+        //break;
     default:
         echo "404 not found";
-        break;   
+        break;
 }

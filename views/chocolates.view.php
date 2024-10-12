@@ -29,15 +29,9 @@ class ChocoView{
         $this->getSmarty()->assign("combos", $combos);
         $this->getSmarty()->display('mostrarCombosPorChocolates.tpl');
     }
+    function VerDetalles($combos){
 
-
-
-
-
-
-
-
-
-
-
+        $this->getSmarty()->assign("combos", $combos);
+        $this->getSmarty()->display('VerDetalles.tpl');
+    }
 }

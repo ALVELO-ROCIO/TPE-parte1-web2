@@ -1,4 +1,4 @@
-<? 
+<?
 
 require_once 'models/combos.model.php';
 require_once 'views/combos.views.php';
@@ -6,24 +6,29 @@ require_once 'views/combos.views.php';
 
 class CombosController {
 
-    private $modelCombos;
-    private $viewCombos;
+    private $model;
+    private $view;
 
     public function __construct() {
-        $this->modelCombos = new CombosModel();
-        $this->viewCombos = new CombosView();
+
+        $this->model = new CombosModel();
+
+        $this->view = new CombosView();
     }
     
     
     public function mostrarTodos(){
         //1. Pedirselo a la base de  datps ----> Modelo --> CombosModel.php
-        $Combos = $this->modelCombos->traerTodos(); //arreglo de Combos
+        $Combos = $this->CombosModel->traerTodos(); //arreglo de Combos
         //2. Una vez q lo tengo, enviarselos a la vista --> CombosView.php
-        $this->viewCombos->mostrarTodos($Combos);
+        $this->CombosViews->mostrarTodos($Combos);
     }
 
 
-    public function mostrarPorId(){
-        
-    }
+    //public function mostrarPorId(){}
+
+   // public function VerDetalles($Combos){
+//$detalles =  $this->CombosModel->getVerDetalles($Combos);
+ //$this->CombosViews->VerDetalles($detalles);
+//}
 }

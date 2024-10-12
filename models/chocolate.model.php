@@ -34,4 +34,13 @@ class ChocoModel {
     
         return $combos;
     }
-} 
+    //public function getVerDetalles($chocolate){
+        //$sql = "select * from combos where FK_CHOCOLATE = $chocolate";
+        //$query = $this->bd->prepare($sql);
+        //$query->execute();
+    
+        //$detalles = $query->fetchAll(PDO::FETCH_OBJ);
+    
+        //return $detalles;
+    }
+

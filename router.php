@@ -1,5 +1,6 @@
 <?php
     require_once 'controllers/chocolates.controller.php';
+    require_once 'controllers/combos.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -24,6 +25,10 @@ switch ($params[0]) {
         $controller = new ChocolatesController();
         $controller->mostrarCombosPorChocolate($params[1]);
         break;
+    case 'combos':
+        $controller = new CombosController();
+        $controller->mostrarCombos();
+        break;
     
     //case 'ver detalles':
         //$controller = new ChocolatesController();
@@ -33,3 +38,5 @@ switch ($params[0]) {
         echo "404 not found";
         break;
 }
+
+

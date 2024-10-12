@@ -1,5 +1,5 @@
-<? 
-require_once ('./libs/Smarty.class.php');
+<?php
+require_once ('./libs/Smarty.class.php');//libreria
 
 class CombosView {
     private $smarty;
@@ -19,7 +19,11 @@ class CombosView {
 
 
 
-    public function mostrarTodos(){}
+    public function mostrarTodos($combos){
+        $this->smarty->assign('combos',$combos);
+        $this->smarty->display('mostrarCombos.tpl');
+
+    }
 
     //function VerDetalles($combos){
 

@@ -1,4 +1,4 @@
-<? 
+<?php 
 require_once('./config.php');
 
 class CombosModel {
@@ -15,11 +15,11 @@ class CombosModel {
     }
 
     public function getCombos(){
-        $sql = "select * from combos";
+        $sql = "select * from combos";//seleccioname todo de la tabla combos asterisco todo.
         $query = $this->bd->prepare($sql);
         $query->execute();
     
-        $combos = $query->fetchAll(PDO::FETCH_OBJ);
+        $combos = $query->fetchAll(PDO::FETCH_OBJ);//muchos combos trae todos
     
         return $combos;
     }

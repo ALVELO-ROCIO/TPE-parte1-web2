@@ -16,7 +16,7 @@ class ChocoModel {
 
     //Función que pide a la DB todos los chocolates
     public function getChocolates(){
-        $sql = "select * from chocolate";
+        $sql = "select * from chocolate"; 
         $query = $this->bd->prepare($sql);
         $query->execute();
     
@@ -26,9 +26,10 @@ class ChocoModel {
     }
 
     public function getCombosPorChocolate($chocolate){
-        $sql = "select * from combos where FK_CHOCOLATE = $chocolate";
+        $sql = "select * from combos where FK_CHOCOLATE = $chocolate"; //hacer con join
+        //SELECT * FROM chocolate JOIN combos ON chocolate.ID=combos.FK_CHOCOLATE WHERE chocolate.ID = ?;
         $query = $this->bd->prepare($sql);
-        $query->execute();
+        $query->execute(); //la variable chocolate debe pasarse como parametro al execute
     
         $combos = $query->fetchAll(PDO::FETCH_OBJ);
     

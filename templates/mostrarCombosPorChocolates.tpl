@@ -13,6 +13,7 @@
 <main>
         {foreach $combos as $combo} <!-- recorro el arreglo-->
             <h3>{$combo->NOMBRE}</h3>
+             <p>Categoria: {$combo->SABOR}</p>
             <a href="index.php?action=detallescombo/{$combo->ID}">Ver Detalles</a>
         {/foreach}
 

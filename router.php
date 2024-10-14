@@ -1,5 +1,6 @@
 <?php
     require_once 'controllers/chocolates.controller.php';
+    require_once 'controllers/usuario.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -24,11 +25,10 @@ switch ($params[0]) {
         $controller = new ChocolatesController();
         $controller->mostrarCombosPorChocolate($params[1]);
         break;
-    
-    //case 'ver detalles':
-        //$controller = new ChocolatesController();
-        //$controller->getVerDetalles($params[1]);
-        //break;
+    case 'login':
+        $controller = new UsuarioController();
+        $controller->mostrarFormularioLogin();
+        break;
     default:
         echo "404 not found";
         break;

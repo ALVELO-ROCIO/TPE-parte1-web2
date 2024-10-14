@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.3, created on 2024-10-12 03:36:07
+/* Smarty version 4.5.3, created on 2024-10-14 22:16:20
   from 'C:\xampp\htdocs\TPE-parte1-web2\templates\mostrarCombosPorChocolates.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_6709d287a6aaa1_54121120',
+  'unifunc' => 'content_670d7c14cfd732_45860441',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4a672542e1fafbc1cc141c72bd87a1e1df0b8c8d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE-parte1-web2\\templates\\mostrarCombosPorChocolates.tpl',
-      1 => 1728691781,
+      1 => 1728936977,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6709d287a6aaa1_54121120 (Smarty_Internal_Template $_smarty_tpl) {
+function content_670d7c14cfd732_45860441 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,6 +42,8 @@ $_smarty_tpl->tpl_vars['combo']->do_else = false;
 ?> <!-- recorro el arreglo-->
             <h3><?php echo $_smarty_tpl->tpl_vars['combo']->value->NOMBRE;?>
 </h3>
+             <p>Categoria: <?php echo $_smarty_tpl->tpl_vars['combo']->value->SABOR;?>
+</p>
             <a href="index.php?action=detallescombo/<?php echo $_smarty_tpl->tpl_vars['combo']->value->ID;?>
 ">Ver Detalles</a>
         <?php

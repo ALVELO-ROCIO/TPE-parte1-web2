@@ -24,9 +24,8 @@ class ChocoModel {
     
         return $chocolates;
     }
-
     public function getCombosPorChocolate($chocolate){
-        $sql = "select * from combos where FK_CHOCOLATE = $chocolate";
+        $sql = ("select c.*, ch.SABOR as SABOR from combos c INNER JOIN chocolate ch on c.FK_CHOCOLATE = ch.ID where c.FK_CHOCOLATE = $chocolate");
         $query = $this->bd->prepare($sql);
         $query->execute();
     
@@ -34,13 +33,6 @@ class ChocoModel {
     
         return $combos;
     }
-    //public function getVerDetalles($chocolate){
-        //$sql = "select * from combos where FK_CHOCOLATE = $chocolate";
-        //$query = $this->bd->prepare($sql);
-        //$query->execute();
     
-        //$detalles = $query->fetchAll(PDO::FETCH_OBJ);
-    
-        //return $detalles;
     }
 

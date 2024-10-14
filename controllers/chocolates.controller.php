@@ -26,17 +26,9 @@ class ChocolatesController {
     }
 
     public function mostrarCombosPorChocolate($chocolate){
-        $combos =  $this->model->getCombosPorChocolate($chocolate); //guardo en la variable lo que me trae el modelo de la bd de todos los combos  que pertenece a un chocolate
-        
+        $combos =  $this->model->getCombosPorChocolate($chocolate); //guardo en la variable lo que me trae el modelo de la bd de todos los combos  que pertenece a un chocolate 
         //Pasarle a la vista los chocolas
         $this->view->mostrarCombosPorChocolate($combos);
         //var_dump($chocolates);
     }
-
-    //public function VerDetalles($chocolate){
-
-       // $detalles =  $this->model->getVerDetalles($chocolate);
-
-        //$this->view->VerDetalles($detalles);
-     //}
 }

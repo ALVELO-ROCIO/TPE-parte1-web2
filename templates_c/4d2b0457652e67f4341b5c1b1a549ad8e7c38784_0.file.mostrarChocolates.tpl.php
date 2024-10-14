@@ -1,37 +1,29 @@
 <?php
-/* Smarty version 4.5.3, created on 2024-10-11 22:44:18
+/* Smarty version 4.5.3, created on 2024-10-14 22:40:19
   from 'C:\xampp\htdocs\TPE-parte1-web2\templates\mostrarChocolates.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.3',
-  'unifunc' => 'content_67098e226f3d00_75641314',
+  'unifunc' => 'content_670d81b31d0822_49331657',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d2b0457652e67f4341b5c1b1a549ad8e7c38784' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE-parte1-web2\\templates\\mostrarChocolates.tpl',
-      1 => 1728678507,
+      1 => 1728938413,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_67098e226f3d00_75641314 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Choco</title>
-</head>
-<body>
-    <header">
-        <h1>Listado de Chocos</h1>
-    </header>
+function content_670d81b31d0822_49331657 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <main>
         <?php

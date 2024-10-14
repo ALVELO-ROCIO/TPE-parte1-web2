@@ -21,14 +21,21 @@ switch ($params[0]) {
         $controller = new ChocolatesController();
         $controller->mostrarChocolates();
         break;
-    case 'combosporchocolate':
+    case 'combosporchocolate'://HAY QUE MODIFICAR ESTE NOMBRE
         $controller = new ChocolatesController();
         $controller->mostrarCombosPorChocolate($params[1]);
         break;
     case 'combos':
-        $controller = new CombosController();
-        $controller->mostrarCombos();
-        break;
+        if(isset($params[1])){
+            $controller = new CombosController();
+            $controller->mostrarCombo($params[1]);
+        }
+        else {
+            $controller = new CombosController();
+            $controller->mostrarCombos();
+        }
+    break;
+
     
     //case 'ver detalles':
         //$controller = new ChocolatesController();

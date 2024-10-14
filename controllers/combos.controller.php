@@ -26,6 +26,11 @@ class CombosController
         //2. Una vez q lo tengo, enviarselos a la vista --> CombosView.php
         $this->view->mostrarTodos($combos);
     }
+    
+    public function mostrarCombo($id){
+        $combo = $this->model->getById($id);
+        $this->view->mostrarCombo($combo);
+    }
 
 
     //public function mostrarPorId(){}

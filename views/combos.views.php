@@ -24,6 +24,10 @@ class CombosView {
         $this->smarty->display('mostrarCombos.tpl');
 
     }
+    public function mostrarCombo ($combo) {
+        $this->smarty->assign('combo',$combo);
+        $this->smarty->display('mostrarCombo.tpl'); 
+    }
 
     //function VerDetalles($combos){
 

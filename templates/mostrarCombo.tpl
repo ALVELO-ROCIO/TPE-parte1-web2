@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Combos</title>
+    <title>Ver combo</title>
 </head>
 <body>
     <header">
-        <h1>Listado de Chocos</h1>
+        <h1>Listado de Chocolate por combo</h1>
     </header>
 
 <main>
-        {foreach $combos as $combo}
-            <h3>{$combo->NOMBRE} <a href="combos/{$combo->ID}">Ver mas</a> </h3>
+        {foreach $combo as $chocolate}
+            <h3>Nombre: {$chocolate->NOMBRE}</h3>
+            <p>Relleno: {$chocolate->RELLENO}</p>
+            <p>Empaque: {$chocolate->EMPAQUE}</p>
         {/foreach}
 
 </main>

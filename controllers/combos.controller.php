@@ -29,6 +29,7 @@ class CombosController
     
     public function mostrarCombo($id){
         $descripcion = $this->model->getById($id);
+        
         $this->view->mostrarCombo($descripcion);
     }
 

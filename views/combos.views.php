@@ -25,7 +25,7 @@ class CombosView {
 
     }
     public function mostrarCombo ($descripcion) {
-        $this->smarty->assign('combo',$descripcion);
+        $this->smarty->assign('descripcion',$descripcion);
         $this->smarty->display('mostrarCombo.tpl'); 
     }
 

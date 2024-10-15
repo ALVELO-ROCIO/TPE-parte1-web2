@@ -24,8 +24,8 @@ class CombosView {
         $this->smarty->display('mostrarCombos.tpl');
 
     }
-    public function mostrarCombo ($descripcion) {
-        $this->smarty->assign('descripcion',$descripcion);
+    public function mostrarCombo ($fila) {
+        $this->smarty->assign('fila',$fila);
         $this->smarty->display('mostrarCombo.tpl'); 
     }
 

@@ -11,9 +11,14 @@
     </header>
 
 <main>
-       
+            <p> Nombre del combo: {$fila->NOMBRE}</p>
+            <p> Presentacion del combo {$fila->descripcion}</p>
+            <p> Tipo de chocolate: {$fila->SABOR}</p>
+            <p> Relleno del chocolate: {$fila->RELLENO}</p>
+            <p> Material de empaque: {$fila->EMPAQUE}</p>
             
-            <p>DESCRIPCION : {$descripcion->descripcion}</p>
+            
+
             
        
 </main>

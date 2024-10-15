@@ -16,7 +16,7 @@
         <ul>
                 <li><a href="home">Inicio</a></li>
                 <li><a href="mostrarChocoles">chocolates</a></li>
-                <li><a href="mostrar">Combos</a></li>
+                <li><a href="combos">Combos</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
     </nav>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2024 a las 15:25:34
+-- Tiempo de generación: 15-10-2024 a las 02:03:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -34,6 +34,15 @@ CREATE TABLE `chocolate` (
   `EMPAQUE` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `chocolate`
+--
+
+INSERT INTO `chocolate` (`ID`, `SABOR`, `RELLENO`, `EMPAQUE`) VALUES
+(1, 'Blanco', 'ddl', 'plastico'),
+(2, 'negro', 'crema', 'tela'),
+(3, 'con leche', 'frutilla', 'papel');
+
 -- --------------------------------------------------------
 
 --
@@ -42,9 +51,30 @@ CREATE TABLE `chocolate` (
 
 CREATE TABLE `combos` (
   `ID` int(11) NOT NULL,
-  `NOMBRE` varchar(20) NOT NULL,
+  `NOMBRE` varchar(100) NOT NULL,
   `CANTIDAD` int(11) NOT NULL,
   `FK_CHOCOLATE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `combos`
+--
+
+INSERT INTO `combos` (`ID`, `NOMBRE`, `CANTIDAD`, `FK_CHOCOLATE`) VALUES
+(1, 'Combo 1', 12, 1),
+(2, 'Combo 2', 12, 2),
+(3, 'Combo 3', 11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `contraseña` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 --
@@ -62,7 +92,13 @@ ALTER TABLE `chocolate`
 --
 ALTER TABLE `combos`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `FK_CHOCOLATE` (`FK_CHOCOLATE`);
+  ADD KEY `FK_CHOCOLATE` (`FK_CHOCOLATE`) USING BTREE;
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -72,13 +108,19 @@ ALTER TABLE `combos`
 -- AUTO_INCREMENT de la tabla `chocolate`
 --
 ALTER TABLE `chocolate`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `combos`
 --
 ALTER TABLE `combos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

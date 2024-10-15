@@ -1,6 +1,7 @@
 <?php
     require_once 'controllers/chocolates.controller.php';
     require_once 'controllers/combos.controller.php';
+    require_once 'controllers/usuario.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -36,11 +37,27 @@ switch ($params[0]) {
         }
     break;
 
+    case 'loggin': //a chequear 
+        $controller=new UsuarioController();
+        $controller->mostrarFormularioDeLoggin();
+        
+        break;
+    case 'Iniciarsesion':
+
+        $controller=new UsuarioController();
+        $controller->verificarInicioDeSesion();
+
+        break;
+     case 'paneldecontrol':
+
+            $controller=new UsuarioController();
+            $controller->mostrarPanelDeControl();
     
-    //case 'ver detalles':
-        //$controller = new ChocolatesController();
-        //$controller->getVerDetalles($params[1]);
-        //break;
+            break;
+    case 'logout':
+        $controller=new UsuarioController();
+        $controller->logout();
+        break;
     default:
         echo "404 not found";
         break;

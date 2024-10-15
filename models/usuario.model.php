@@ -1,7 +1,7 @@
 <?php
 require_once('./config.php');
 
-class ChocoModel {
+class UsuarioModel {
 
     private $bd;
 //es lo que conecta y consulta a la BD

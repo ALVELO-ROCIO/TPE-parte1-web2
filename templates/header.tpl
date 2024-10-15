@@ -13,10 +13,10 @@
     <nav class="navegacion">
         
         <ul>
-                <li><a href="mostrarChocolates.tpl">Inicio</a></li>
-                <li><a href="mostrarCombosPorChocolates.tpl">chocolates</a></li>
-                <li><a href="mostrarCombos.tpl">Combos</a></li>
-                <li><a href="mostrarFormulario.tpl">Login</a></li>
+                <li><a href="home">Inicio</a></li>
+                <li><a href="chocolates">chocolates</a></li>
+                <li><a href="combosporchocolate">Combos</a></li>
+                <li><a href="loggin">Login</a></li>
             </ul>
     </nav>
 </header>

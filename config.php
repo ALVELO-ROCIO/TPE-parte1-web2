@@ -1,6 +1,6 @@
 <?php 
 const USER = 'root';
 const PASS = '';
-const BD = 'ChocoAras';
+const BD = 'chocoaras';
 const HOST = 'localhost';
 ?>

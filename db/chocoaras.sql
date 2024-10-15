@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2024 a las 02:03:57
+-- Tiempo de generación: 15-10-2024 a las 12:10:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -52,7 +52,7 @@ INSERT INTO `chocolate` (`ID`, `SABOR`, `RELLENO`, `EMPAQUE`) VALUES
 CREATE TABLE `combos` (
   `ID` int(11) NOT NULL,
   `NOMBRE` varchar(100) NOT NULL,
-  `CANTIDAD` int(11) NOT NULL,
+  `descripcion` varchar(150) NOT NULL,
   `FK_CHOCOLATE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
@@ -60,10 +60,10 @@ CREATE TABLE `combos` (
 -- Volcado de datos para la tabla `combos`
 --
 
-INSERT INTO `combos` (`ID`, `NOMBRE`, `CANTIDAD`, `FK_CHOCOLATE`) VALUES
-(1, 'Combo 1', 12, 1),
-(2, 'Combo 2', 12, 2),
-(3, 'Combo 3', 11, 1);
+INSERT INTO `combos` (`ID`, `NOMBRE`, `descripcion`, `FK_CHOCOLATE`) VALUES
+(1, 'Combo 1', 'bombones:chocolate blanco rellenado con ddl y empaque plastico', 1),
+(2, 'Combo 2', 'alfajores:chocolate negro relleno de crema y empaque de tela', 2),
+(3, 'Combo 3', 'chupetines:chocolate blanco relleno de ddl y empaque plastico', 1);
 
 -- --------------------------------------------------------
 

@@ -24,11 +24,11 @@ class CombosModel {
     }
 
     public function getById($id){
-        $sql = "SELECT * FROM COMBOS JOIN CHOCOLATE ON chocolate.fk_combo = combos.id where combos.id = ?";//seleccioname todo de la tabla combos asterisco todo.
+        $sql = "SELECT descripcion FROM COMBOS where combos.id = ?";//seleccioname todo de la tabla combos asterisco todo.
         $query = $this->bd->prepare($sql);
         $query->execute([$id]);
-        $combo = $query->fetchAll(PDO::FETCH_OBJ);//muchos combos trae todos
-        return $combo;
+        $descripcion = $query->fetch(PDO::FETCH_OBJ);//muchos combos trae todos
+        return $descripcion;
     }
     public function traerTodos(){
         //devuelve todos los productos 

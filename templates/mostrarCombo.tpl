@@ -7,16 +7,15 @@
 </head>
 <body>
     <header">
-        <h1>Listado de Chocolate por combo</h1>
+        <h1>Descripcion de combo</h1>
     </header>
 
 <main>
-        {foreach $combo as $chocolate}
-            <h3>Nombre: {$chocolate->NOMBRE}</h3>
-            <p>Relleno: {$chocolate->RELLENO}</p>
-            <p>Empaque: {$chocolate->EMPAQUE}</p>
-        {/foreach}
-
+       
+            
+            <p>DESCRIPCION : {$descripcion->descripcion}</p>
+            
+       
 </main>
 
     <footer>

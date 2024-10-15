@@ -14,7 +14,7 @@ class ChocoModel {
         }
  }
 
-    //Función que pide a la DB todos los chocolates
+    //Función que pide a la DB todos los usuarios
     public function getUsuarios(){
         $sql = "select * from usuario"; 
         $query = $this->bd->prepare($sql);

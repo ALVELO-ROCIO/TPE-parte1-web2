@@ -17,8 +17,6 @@
 
 </main>
 
-    <footer>
-        <p>&copy; 2024 ChocoAras</p>
-    </footer>
+{include "footer.tpl"}
 </body>
 </html>

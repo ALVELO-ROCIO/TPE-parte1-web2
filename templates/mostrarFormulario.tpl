@@ -1,9 +1,5 @@
 {include "header.tpl"}
 
-
-
-
-
 <main>
         {foreach $usuarios as $usuario}
             <h3>{$usuario->nombre} estas</h3>

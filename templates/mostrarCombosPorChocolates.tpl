@@ -7,7 +7,7 @@
 </head>
 <body>
     <header">
-        <h1>Listado de combos</h1>
+        <h1>Listado de combos por chocolate</h1>
     </header>
 
 <main>

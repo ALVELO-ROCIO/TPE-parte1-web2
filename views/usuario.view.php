@@ -18,8 +18,9 @@ class UsuarioView{
 
     }
 
-    public function mostrarFormulario(){
-        $this->getSmarty()->display('formulario.tpl');
+    public function mostrarFormulario($usuarios){
+        $this->getSmarty()->assign("usuario", $usuarios);
+        $this->getSmarty()->display('mostrarFormulario.tpl');
     }
 
 }

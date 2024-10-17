@@ -43,16 +43,12 @@ switch ($params[0]) {
         
         break;
     case 'Iniciarsesion':
-
         $controller=new UsuarioController();
         $controller->verificarInicioDeSesion();
-
         break;
      case 'paneldecontrol':
-
             $controller=new UsuarioController();
             $controller->mostrarPanelDeControl();
-    
             break;
     case 'logout':
         $controller=new UsuarioController();

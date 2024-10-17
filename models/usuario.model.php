@@ -15,14 +15,14 @@ class UsuarioModel {
  }
 
     //Función que pide a la DB todos los usuarios
-    public function getUsuarios(){
-        $sql = "select * from usuario"; 
+    public function getUsuario($nombre){
+        $sql = "SELECT * from usuarios where nombre = ?"; 
         $query = $this->bd->prepare($sql);
-        $query->execute();
+        $query->execute([$nombre]);
     
-        $usuarios = $query->fetchAll(PDO::FETCH_OBJ);
+        $usuario = $query->fetch(PDO::FETCH_OBJ);
     
-        return $usuarios;
+        return $usuario;
     }
 
 }

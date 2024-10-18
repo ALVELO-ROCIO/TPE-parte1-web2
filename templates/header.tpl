@@ -9,10 +9,10 @@
     </head>
 
 <body>
-<header><h1>Bienvenido al sitio</h1>
+<div class=contenedor><header><h1>Bienvenido al sitio</h1>
     <nav class="navegacion">
         
-        <ul>
+        <ul class="lista">
                 <li><a href="home">Inicio</a></li>
                 <li><a href="chocolates">chocolates</a></li>
                 <li><a href="combos">combos</a></li>
@@ -20,4 +20,5 @@
             </ul>
     </nav>
 </header>
+</div>
 

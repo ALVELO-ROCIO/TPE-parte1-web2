@@ -36,11 +36,13 @@ switch ($params[0]) {
             $controller->mostrarCombos();
         }
     break;
-
+    case 'registrar': 
+        $controller=new UsuarioController();
+        $controller->mostrarFormularioDeRegistro();
+        break; 
     case 'loggin': //a chequear 
         $controller=new UsuarioController();
         $controller->mostrarFormularioDeLoggin();
-        
         break;
     case 'Iniciarsesion':
         $controller=new UsuarioController();
@@ -54,9 +56,23 @@ switch ($params[0]) {
         $controller=new UsuarioController();
         $controller->logout();
         break;
+    case 'administrador':
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $username = $_POST['nombre'];
+            $password = $_POST['contraseña'];
+        
+        $controller=new AdministradorController();
+        $controller->mostrarFuncionesAdmin();
+        }
+        else {
+            $controller=new AdministradorController();
+            $controller->mostrarFormularioDeLoggin();
+        }
+        break;
     default:
         echo "404 not found";
         break;
 }
+
 
 

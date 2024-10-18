@@ -2,6 +2,11 @@
 
 require_once 'models/usuario.model.php';
 require_once ('views/usuario.view.php');
+require_once ('models/chocolate.model.php');
+require_once ('views/chocolates.view.php');
+
+
+
 
 
 class UsuarioController {
@@ -9,6 +14,8 @@ class UsuarioController {
     //private $model;
     private $view;
     private $model;
+    private $chocolatemodel;
+    private $chocolateview;
 
     public function __construct(){
         
@@ -16,6 +23,10 @@ class UsuarioController {
 
 
         $this->view = new UsuarioView();
+
+        $this->chocolatemodel = new ChocoModel();
+
+        $this->chocolateview = new ChocoView();
     }
 
     public function mostrarFormularioDeLoggin() {
@@ -40,14 +51,19 @@ class UsuarioController {
         $admin = $this->model->getUsuario($nombre); //preg y trae si existe el usuario llamado admin y pregunta
         if($admin && ($admin->contraseña) && session_status() != PHP_SESSION_ACTIVE){
                 session_start();
-                $_SESSION['IS_LOGGED'] = true; 
+                $_SESSION['IS_LOGGED'] = true;
+                $_SESSION['ID-USER'] = $admin->id_usuario;
+                $_SESSION['USERNAME'] = $admin->nombre; 
             return true;
         }else{
             return false;
         }
     }
     public function mostrarPanelDeControl() {
-        $this->view->mostrarPanelDeControl();
+
+        $chocolates=$this->chocolatemodel->getChocolates();
+
+        $this->view->mostrarPanelDeControl($chocolates);
     }
     public function logout(){
          if (!empty($_SESSION)) { //si la sesion es vacia signfica que se cerro 
@@ -64,4 +80,30 @@ class UsuarioController {
        
 
     }
+    
+    public function mostrarformnuevochocolate(){
+
+        $this->chocolateview->mostrarformnuevochocolate();
+
+    }
+
+    public function agregarchocolate(){
+        $sabor=$_POST['sabor'];
+        $relleno=$_POST['relleno'];
+        $empaque=$_POST['empaque'];
+
+        $this->chocolatemodel->guardarChocolate($sabor, $relleno, $empaque);
+        header("Location: " . BASE_URL . 'paneldecontrol');
+
+    }
+
+
+public function editarchocolate(){
+        $sabor=$_POST['sabor'];
+        $relleno=$_POST['relleno'];
+        $empaque=$_POST['empaque'];
+
+        $this->chocolatemodel->ChocolateEditado($sabor, $relleno, $empaque);
+        header("Location: " . BASE_URL . 'paneldecontrol');
+}
 }

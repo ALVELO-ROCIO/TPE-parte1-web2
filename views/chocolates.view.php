@@ -29,4 +29,10 @@ class ChocoView{
         $this->getSmarty()->assign("combos", $combos);
         $this->getSmarty()->display('mostrarCombosPorChocolates.tpl');
     }
+    function mostrarformnuevochocolate(){
+        $this->getSmarty()->display('mostrarformularioNuevoChocolate.tpl');
+    }
+    function mostrarformeditarchocolate(){
+        $this->getSmarty()->display('mostrarformeditarChocolate.tpl');
+}
 }

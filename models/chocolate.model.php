@@ -38,6 +38,15 @@ class ChocoModel {
     
         return $combos;
     }
-    
-    }
+     public function guardarChocolate($sabor, $relleno, $empaque){
+        $sql = "INSERT INTO chocolate (SABOR, RELLENO, EMPAQUE) VALUES (?, ?, ?)"; 
+        $query = $this->bd->prepare($sql);
+        $query->execute([$sabor, $relleno, $empaque]);
+     }
 
+     public function ChocolateEditado($sabor, $relleno, $empaque){
+        $sql = "UPDATE chocolate (SABOR, RELLENO, EMPAQUE) VALUES (?, ?, ?)"; 
+        $query = $this->bd->prepare($sql);
+        $query->execute([$sabor, $relleno, $empaque]);
+    }
+}

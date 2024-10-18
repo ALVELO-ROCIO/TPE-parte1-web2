@@ -23,7 +23,9 @@ class UsuarioView{
         $this->getSmarty()->display('mostrarFormulario.tpl');
     }
 
-    public function mostrarPanelDeControl() {
+    public function mostrarPanelDeControl($chocolates) {
+        $this->getSmarty()->assign('chocolates', $chocolates);
+        
         $this->getSmarty()->display('paneldecontrol.tpl');
     }
 

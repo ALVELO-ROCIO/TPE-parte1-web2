@@ -36,10 +36,6 @@ switch ($params[0]) {
             $controller->mostrarCombos();
         }
     break;
-    case 'registrar': 
-        $controller=new UsuarioController();
-        $controller->mostrarFormularioDeRegistro();
-        break; 
     case 'loggin': //a chequear 
         $controller=new UsuarioController();
         $controller->mostrarFormularioDeLoggin();
@@ -48,7 +44,7 @@ switch ($params[0]) {
         $controller=new UsuarioController();
         $controller->verificarInicioDeSesion();
         break;
-     case 'paneldecontrol':
+    case 'paneldecontrol':
             $controller=new UsuarioController();
             $controller->mostrarPanelDeControl();
             break;
@@ -56,19 +52,18 @@ switch ($params[0]) {
         $controller=new UsuarioController();
         $controller->logout();
         break;
-    case 'administrador':
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $username = $_POST['nombre'];
-            $password = $_POST['contraseña'];
-        
-        $controller=new AdministradorController();
-        $controller->mostrarFuncionesAdmin();
-        }
-        else {
-            $controller=new AdministradorController();
-            $controller->mostrarFormularioDeLoggin();
-        }
+    case 'formnuevochocolate':
+        $controller=new UsuarioController();
+        $controller->mostrarformnuevochocolate();
         break;
+        case 'agregarchocolate':
+            $controller=new UsuarioController();
+            $controller->agregarchocolate();
+            break;
+        case 'formeditarchocolate':
+            $controller=new UsuarioController();
+            $controller->editarchocolate();
+            break;
     default:
         echo "404 not found";
         break;

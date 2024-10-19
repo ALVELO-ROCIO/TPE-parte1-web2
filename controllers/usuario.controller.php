@@ -33,6 +33,7 @@ class UsuarioController {
         
         $this->view->mostrarFormulario();
     }
+
     public function verificarInicioDeSesion() {
         $nombre_usuario = $_POST['usuario'];//recuperamos el usuario
         $contraseña_usuario = $_POST['contraseña'];
@@ -76,9 +77,6 @@ class UsuarioController {
         }
          //cierra la sesion
         // Limpia todas las variables de sesión
-       
-       
-
     }
     
     public function mostrarformnuevochocolate(){
@@ -96,18 +94,10 @@ class UsuarioController {
         header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
+  //public function mostrarformeditarChocolate (){
+
+   //     $this->chocolateview->mostrarformeditarChocolate(i);
+   // }
 
 
-public function editarchocolate($id){
-    $chocolate = $this->model->getByIDchocolate($id);
-
-    $chocolate['sabor'] = 'Nuevo sabor';
-    $chocolate['relleno'] = 'Nuevo relleno';
-    $chocolate['empaque'] = 'Nuevo empaque';
-    
-
-
-        $this->chocolatemodel->ChocolateEditado($chocolate);
-        
-}
 }

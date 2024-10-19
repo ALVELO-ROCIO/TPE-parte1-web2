@@ -14,19 +14,6 @@ class ChocoModel {
         }
  }
 
- //Función para traer un chocolate por id
-    public function getByIDchocolate($id){
-        $sql = "SELECT * FROM chocolates WHERE id = :id";
-
-        $query = $this->bd->prepare($sql);
-        $query->execute();
-
-       $query->bindParam(':id', $id, PDO::PARAM_INT);
-       $chocolate = $query->fetch(PDO::FETCH_ASSOC);
-        
-        return $chocolate;
-    }
-
     //Función que pide a la DB todos los chocolates
     public function getChocolates(){
         $sql = "select * from chocolate"; 
@@ -56,6 +43,19 @@ class ChocoModel {
         $query = $this->bd->prepare($sql);
         $query->execute([$sabor, $relleno, $empaque]);
      }
+
+     //Función para traer un chocolate por id
+public function getByIDchocolate($id){
+    $sql = "SELECT id FROM chocolates WHERE id = :id";
+
+    $query = $this->bd->prepare($sql);
+    $query->execute();
+
+   $query->bindParam(':id', $id, PDO::PARAM_INT);
+   $chocolate = $query->fetch(PDO::FETCH_ASSOC);
+    
+    return $chocolate;
+}
 
      public function ChocolateEditado($sabor, $relleno, $empaque){
         $sql = "UPDATE chocolate SET(SABOR, RELLENO, EMPAQUE) VALUES (?, ?, ?) WHERE id_chocolate"; 

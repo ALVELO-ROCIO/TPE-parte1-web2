@@ -60,17 +60,24 @@ switch ($params[0]) {
             $controller=new UsuarioController();
             $controller->agregarchocolate();
             break;
-        case 'formeditarchocolate':
-            $controller=new UsuarioController();
-            if(isset($params[1])){
-            $controller->editarchocolate($params[1]);
-            }
+        //case 'formeditarchocolate':
+          //  $controller=new UsuarioController();
+            //if(isset($params[1])){
+            //$controller->mostrarformeditarChocolate($params[1]);
+            //}
+           // break;
+        //case 'editarchocolate':
+           // $controller=new UsuarioController();
+           // if(isset($params[1])){
+           // $controller->editarchocolate($params[1]);
             
-            break;
+           // }
+           // break;
     default:
         echo "404 not found";
         break;
 }
+
 
 
 

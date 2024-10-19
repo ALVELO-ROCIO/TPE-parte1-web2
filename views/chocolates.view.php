@@ -32,7 +32,8 @@ class ChocoView{
     function mostrarformnuevochocolate(){
         $this->getSmarty()->display('mostrarformularioNuevoChocolate.tpl');
     }
-    function mostrarformeditarchocolate(){
+    function mostrarformeditarchocolate($chocolate){
+        $this->getSmarty()->assign('chocolate', $chocolate);
         $this->getSmarty()->display('mostrarformeditarChocolate.tpl');
 }
 }

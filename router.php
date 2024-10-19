@@ -62,7 +62,10 @@ switch ($params[0]) {
             break;
         case 'formeditarchocolate':
             $controller=new UsuarioController();
-            $controller->editarchocolate();
+            if(isset($params[1])){
+            $controller->editarchocolate($params[1]);
+            }
+            
             break;
     default:
         echo "404 not found";

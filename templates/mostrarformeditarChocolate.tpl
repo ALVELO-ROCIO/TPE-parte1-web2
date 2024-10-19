@@ -6,11 +6,11 @@
     <form action="editarchocolate" method="post">
                 
         <label>Sabor</label>
-        <input name="sabor" type="text" required>
+        <input name="sabor" type="text" required value="{$chocolate->SABOR}">
         <label>Relleno</label>
-        <input name="relleno" type="text" required>
+        <input name="relleno" type="text" required value="{$chocolate->RELLENO}" >
         <label>Empaque</label>
-        <input name="empaque" type="text" required>
+        <input name="empaque" type="text" required value="{$chocolate->EMPAQUE}" >
 
         <button type="submit">Editar</button>
         <a href="paneldecontrol" type="button">Cancelar</a>         

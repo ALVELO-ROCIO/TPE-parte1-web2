@@ -98,12 +98,16 @@ class UsuarioController {
     }
 
 
-public function editarchocolate(){
-        $sabor=$_POST['sabor'];
-        $relleno=$_POST['relleno'];
-        $empaque=$_POST['empaque'];
+public function editarchocolate($id){
+    $chocolate = $this->model->getByIDchocolate($id);
 
-        $this->chocolatemodel->ChocolateEditado($sabor, $relleno, $empaque);
-        header("Location: " . BASE_URL . 'paneldecontrol');
+    $chocolate['sabor'] = 'Nuevo sabor';
+    $chocolate['relleno'] = 'Nuevo relleno';
+    $chocolate['empaque'] = 'Nuevo empaque';
+    
+
+
+        $this->chocolatemodel->ChocolateEditado($chocolate);
+        
 }
 }

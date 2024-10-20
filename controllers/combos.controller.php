@@ -32,7 +32,7 @@ class CombosController
         
         $this->view->mostrarCombo($fila);
     }
-
+    
 
     //public function mostrarPorId(){}
 

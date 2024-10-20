@@ -28,7 +28,16 @@ class CombosView {
         $this->smarty->assign('fila',$fila);
         $this->smarty->display('mostrarCombo.tpl'); 
     }
-
+    public function mostrarformnuevocombo($chocolates){
+        $this->smarty->assign('chocolates',$chocolates);
+        $this->getSmarty()->display('mostrarFormularioNuevoCombo.tpl');
+    }
+    public function mostrarformeditarCombo($combo,$chocolates){
+        
+        $this->smarty->assign('combo',$combo);
+        $this->smarty->assign('chocolates',$chocolates);
+        $this->getSmarty()->display('mostrarFormEditarCombo.tpl');
+    }
     //function VerDetalles($combos){
 
         //$this->getSmarty()->assign("combos", $combos);

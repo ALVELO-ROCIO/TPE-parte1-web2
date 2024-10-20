@@ -4,6 +4,8 @@ require_once 'models/usuario.model.php';
 require_once ('views/usuario.view.php');
 require_once ('models/chocolate.model.php');
 require_once ('views/chocolates.view.php');
+require_once ('models/combos.model.php');
+require_once ('views/combos.views.php');
 
 
 
@@ -16,6 +18,8 @@ class UsuarioController {
     private $model;
     private $chocolatemodel;
     private $chocolateview;
+    private $combosview;
+    private $combosmodel;
 
     public function __construct(){
         
@@ -27,6 +31,11 @@ class UsuarioController {
         $this->chocolatemodel = new ChocoModel();
 
         $this->chocolateview = new ChocoView();
+
+
+        $this->combosmodel = new CombosModel();
+
+        $this->combosview = new CombosView();
     }
 
     public function mostrarFormularioDeLoggin() {
@@ -63,8 +72,8 @@ class UsuarioController {
     public function mostrarPanelDeControl() {
 
         $chocolates=$this->chocolatemodel->getChocolates();
-
-        $this->view->mostrarPanelDeControl($chocolates);
+        $combos=$this->combosmodel-> getCombos();
+        $this->view->mostrarPanelDeControl($chocolates,$combos);
     }
     public function logout(){
          if (!empty($_SESSION)) { //si la sesion es vacia signfica que se cerro 
@@ -94,10 +103,43 @@ class UsuarioController {
         header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
-  //public function mostrarformeditarChocolate (){
+    public function mostrarformnuevocombo(){
+      $chocolates=$this->chocolatemodel->getChocolates();
+        $this->combosview->mostrarformnuevocombo($chocolates);
+    }
+    public function agregarcombo(){
+        $nombre=$_POST['nombre'];
+        $fk_chocolate=$_POST['fk_chocolate'];
+         
+         
 
-   //     $this->chocolateview->mostrarformeditarChocolate(i);
-   // }
+        $this->combosmodel->guardarCombo($nombre, $fk_chocolate);
+        header("Location: " . BASE_URL . 'paneldecontrol');
+
+    }
+    public function mostrarformeditarCombo($id){
+       $chocolates=$this->chocolatemodel->getChocolates();
+       $combo=$this->combosmodel->getComboById($id);
+       
+       $this->combosview->mostrarformeditarCombo($combo,$chocolates);
+    }
+    public function guardarComboEditado () {
+        $id=$_POST['id']; //recupero el id desde el formulario una vez que seleccono el cmbo que quiero editar
+        var_dump($id);
+        $nombre=$_POST['nombre'];
+        $fk_chocolate=$_POST['fk_chocolate'];
+        var_dump("Vaaaa");
+        $this->combosmodel->guardarComboEditado($id,$nombre, $fk_chocolate);
+        header("Location: " . BASE_URL . 'paneldecontrol');
+        die();
+           
+    }
+    public function eliminarCombo($id){
+
+       $this->combosmodel->eliminarCombo($id);
+       header("Location: " . BASE_URL . 'paneldecontrol');
+
+    }
 
 
 }

@@ -60,6 +60,33 @@ switch ($params[0]) {
             $controller=new UsuarioController();
             $controller->agregarchocolate();
             break;
+        case 'formnuevocombo':
+            $controller=new UsuarioController();
+            $controller->mostrarformnuevocombo();
+            break;
+        case 'agregarcombo':
+             $controller=new UsuarioController();
+             $controller->agregarcombo();
+            break;
+
+        case 'formeditarcombo':
+             $controller=new UsuarioController();
+             if($params[1]=="guardarcomboeditado"){
+               
+                $controller->guardarComboEditado();
+            
+             }
+             else {
+             $controller->mostrarformeditarCombo($params[1]);
+             }
+            break;
+       
+        case 'borrarcombo':
+            $controller=new UsuarioController();
+              
+            $controller->eliminarCombo($params[1]);
+           
+        break;
         //case 'formeditarchocolate':
           //  $controller=new UsuarioController();
             //if(isset($params[1])){

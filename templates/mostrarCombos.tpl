@@ -7,7 +7,7 @@
 </head>
 <body>
     <header">
-        <h1>Listado de Chocos</h1>
+        <h1>Listado de Combos</h1>
     </header>
 
 <main>

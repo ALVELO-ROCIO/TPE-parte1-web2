@@ -36,6 +36,8 @@ class UsuarioController {
         $this->combosmodel = new CombosModel();
 
         $this->combosview = new CombosView();
+
+        //cada vez que quera entrar a a funcion de los administradores pasa por esta funcion
     }
 
     public function mostrarFormularioDeLoggin() {
@@ -69,11 +71,20 @@ class UsuarioController {
             return false;
         }
     }
+    private function verificarSiUsuarioLogueadoEsAdmin (){
+             session_start();
+                 if (!$_SESSION['IS_LOGGED']== true) {
+                     header("Location: " . BASE_URL . 'loggin'); 
+                    }
+                else
+                return true;
+    }
     public function mostrarPanelDeControl() {
-
+       if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         $chocolates=$this->chocolatemodel->getChocolates();
         $combos=$this->combosmodel-> getCombos();
         $this->view->mostrarPanelDeControl($chocolates,$combos);
+    }
     }
     public function logout(){
         session_start();
@@ -90,12 +101,13 @@ class UsuarioController {
     }
     
     public function mostrarformnuevochocolate(){
-
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         $this->chocolateview->mostrarformnuevochocolate();
 
     }
-
+    }
     public function agregarchocolate(){
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         $sabor=$_POST['sabor'];
         $relleno=$_POST['relleno'];
         $empaque=$_POST['empaque'];
@@ -104,11 +116,15 @@ class UsuarioController {
         header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
+}
     public function mostrarformnuevocombo(){
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
       $chocolates=$this->chocolatemodel->getChocolates();
         $this->combosview->mostrarformnuevocombo($chocolates);
     }
+}
     public function agregarcombo(){
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         $nombre=$_POST['nombre'];
         $fk_chocolate=$_POST['fk_chocolate'];
          
@@ -118,31 +134,37 @@ class UsuarioController {
         header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
+}
     public function mostrarformeditarCombo($id){
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
        $chocolates=$this->chocolatemodel->getChocolates();
        $combo=$this->combosmodel->getComboById($id);
        
        $this->combosview->mostrarformeditarCombo($combo,$chocolates);
     }
+}
     public function guardarComboEditado () {
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         $id=$_POST['id']; //recupero el id desde el formulario una vez que seleccono el cmbo que quiero editar
-        var_dump($id);
+        
         $nombre=$_POST['nombre'];
         $fk_chocolate=$_POST['fk_chocolate'];
-        var_dump("Vaaaa");
+        
         $this->combosmodel->guardarComboEditado($id,$nombre, $fk_chocolate);
         header("Location: " . BASE_URL . 'paneldecontrol');
         die();
            
     }
+}
     public function eliminarCombo($id){
-
+        if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
        $this->combosmodel->eliminarCombo($id);
        header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
+}
   public function mostrarformeditarChocolate(){
-    
+    if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         // Obtener el chocolate por su ID
         $chocolate = $this->chocolatemodel->GetByIdChocolate();
     
@@ -150,7 +172,9 @@ class UsuarioController {
          $this->chocolateview->mostrarformeditarChocolate($chocolate);
         
     }
+}
    public function editarChocolate(){
+    if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         // Capturamos los datos de la solicitud PUT
         parse_str(file_get_contents("php://input"), $inputData);
@@ -179,4 +203,5 @@ class UsuarioController {
         }
    }
    }
+}
 }

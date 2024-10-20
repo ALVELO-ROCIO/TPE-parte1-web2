@@ -15,6 +15,7 @@ class ChocoView{
 
     private function getSmarty(){
         //creo una funcion privada para asignarle variables a la vista y luego se dispare esa views
+      
         return $this->smarty;
 
     }
@@ -35,5 +36,11 @@ class ChocoView{
     function mostrarformeditarchocolate($chocolate){
         $this->getSmarty()->assign('chocolate', $chocolate);
         $this->getSmarty()->display('mostrarformeditarChocolate.tpl'); 
+    }
+    //$this->smarty->assign('chocolate', $chocolate);
+    function BorrarChocolate($chocolate){
+        $this->getSmarty()->assign('chocolate', $chocolate);
+        $this->getSmarty()->display('mostrarFormBorrarChocolate.tpl');
+
     }
 }

@@ -60,19 +60,24 @@ switch ($params[0]) {
             $controller=new UsuarioController();
             $controller->agregarchocolate();
             break;
-        //case 'formeditarchocolate':
-          //  $controller=new UsuarioController();
-            //if(isset($params[1])){
-            //$controller->mostrarformeditarChocolate($params[1]);
-            //}
-           // break;
-        //case 'editarchocolate':
-           // $controller=new UsuarioController();
-           // if(isset($params[1])){
-           // $controller->editarchocolate($params[1]);
-            
-           // }
-           // break;
+        case 'formeditarchocolate':
+            $controller=new UsuarioController();
+            $controller->mostrarformeditarChocolate();
+    
+           break;
+        case 'editarchocolate':
+           $controller=new UsuarioController();
+           if(isset($id)){
+           $controller->editarChocolate($id);
+            }
+         break;
+         case 'eliminarchocolate':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'eliminarChocolate') {
+                $id = $_GET['id']; // Asegúrate de validar y sanitizar este valor
+                $controller = new UsuarioController();
+                $controller->eliminarChocolate($id);
+            }
+           break;
     default:
         echo "404 not found";
         break;

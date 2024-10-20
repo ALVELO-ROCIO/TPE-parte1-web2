@@ -72,7 +72,7 @@ public function guardarChocolateEditado($sabor, $relleno, $empaque){
 
 public function eliminarChocolatePorId($id) {
     $sql = "DELETE FROM chocolate WHERE id = ?";
-    $query = $this->db->prepare($sql);
+    $query = $this->bd->prepare($sql);
     return $query->execute([$id]); 
 }
 }

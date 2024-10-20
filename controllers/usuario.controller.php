@@ -76,6 +76,7 @@ class UsuarioController {
         $this->view->mostrarPanelDeControl($chocolates,$combos);
     }
     public function logout(){
+        session_start();
          if (!empty($_SESSION)) { //si la sesion es vacia signfica que se cerro 
             $_SESSION = [];
             session_destroy();

@@ -60,6 +60,7 @@ switch ($params[0]) {
             $controller=new UsuarioController();
             $controller->agregarchocolate();
             break;
+<<<<<<< HEAD
         case 'formnuevocombo':
             $controller=new UsuarioController();
             $controller->mostrarformnuevocombo();
@@ -100,6 +101,26 @@ switch ($params[0]) {
             
            // }
            // break;
+=======
+        case 'formeditarchocolate':
+            $controller=new UsuarioController();
+            $controller->mostrarformeditarChocolate();
+    
+           break;
+        case 'editarchocolate':
+           $controller=new UsuarioController();
+           if(isset($id)){
+           $controller->editarChocolate($id);
+            }
+         break;
+         case 'eliminarchocolate':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'eliminarChocolate') {
+                $id = $_GET['id']; // Asegúrate de validar y sanitizar este valor
+                $controller = new UsuarioController();
+                $controller->eliminarChocolate($id);
+            }
+           break;
+>>>>>>> 70d02b4e5034f123dd3266dc9bb305d002fb213c
     default:
         echo "404 not found";
         break;

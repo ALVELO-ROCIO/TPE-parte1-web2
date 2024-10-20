@@ -140,6 +140,42 @@ class UsuarioController {
        header("Location: " . BASE_URL . 'paneldecontrol');
 
     }
+  public function mostrarformeditarChocolate(){
+    
+        // Obtener el chocolate por su ID
+        $chocolate = $this->chocolatemodel->GetByIdChocolate();
+    
+            // Mostrar el formulario para editar el chocolate si se encuentra
+         $this->chocolateview->mostrarformeditarChocolate($chocolate);
+        
+    }
+   public function editarChocolate(){
+    if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+        // Capturamos los datos de la solicitud PUT
+        parse_str(file_get_contents("php://input"), $inputData);
 
+        // Extraemos los datos necesarios de la entrada
+        $sabor = isset($inputData['sabor']) ? $inputData['sabor'] : null;
+        $relleno = isset($inputData['relleno']) ? $inputData['relleno'] : null;
+        $empaque = isset($inputData['empaque']) ? $inputData['empaque'] : null;
 
+        // Validamos que todos los datos necesarios estén presentes
+        if ($sabor !== null && $relleno !== null && $empaque !== null) {
+            // Llamamos al modelo para guardar los datos editados
+            $resultado = $this->chocolatemodel->guardarChocolateEditado($sabor, $relleno, $empaque);
+           
+            if ($resultado) {
+                // Redirigimos al usuario a la página de control
+                header("Location: " . BASE_URL . 'paneldecontrol');
+                exit; // Aseguramos que no se ejecute código adicional
+            } else {
+                // Manejo de error si la operación de guardado falla
+                echo "Error al guardar los cambios. Intente de nuevo.";
+            }
+        //$this->chocolatemodel->guardarChocolateEditado($sabor, $relleno, $empaque);
+        //header("Location: " . BASE_URL . 'paneldecontrol');
+        //$this->view->mostrarChocolateEditadoGuardado($chocolate)
+        }
+   }
+   }
 }

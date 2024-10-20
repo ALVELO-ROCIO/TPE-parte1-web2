@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <h3>Agregar un chocolate </h3>
+        <h3>Agregar un chocolate </h3>
     <form action="agregarchocolate" method="post">
                 
         <label>Sabor</label>

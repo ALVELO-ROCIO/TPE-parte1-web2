@@ -45,21 +45,34 @@ class ChocoModel {
      }
 
      //Función para traer un chocolate por id
-public function getByIDchocolate($id){
-    $sql = "SELECT id FROM chocolates WHERE id = :id";
 
-    $query = $this->bd->prepare($sql);
-    $query->execute();
+public function GetByIdChocolate() { 
+   $sql = "SELECT * FROM chocolate WHERE id = :id"; // Quizás quieras traer todos los datos del chocolate
 
-   $query->bindParam(':id', $id, PDO::PARAM_INT);
-   $chocolate = $query->fetch(PDO::FETCH_ASSOC);
+   $query = $this->bd->prepare($sql);
     
+    // Vinculamos el parámetro
+   $query->bindParam(':id', $id, PDO::PARAM_INT);
+
+    // Ejecutamos la consulta
+   $query->execute();
+
+    //Obtenemos el resultado
+    $chocolate = $query->fetch(PDO::FETCH_ASSOC);
+
     return $chocolate;
 }
 
-     public function ChocolateEditado($sabor, $relleno, $empaque){
+
+public function guardarChocolateEditado($sabor, $relleno, $empaque){
         $sql = "UPDATE chocolate SET(SABOR, RELLENO, EMPAQUE) VALUES (?, ?, ?) WHERE id_chocolate"; 
         $query = $this->bd->prepare($sql);
         $query->execute([$sabor, $relleno, $empaque]);
     }
+
+public function eliminarChocolatePorId($id) {
+    $sql = "DELETE FROM chocolate WHERE id = ?";
+    $query = $this->db->prepare($sql);
+    return $query->execute([$id]); 
+}
 }

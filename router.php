@@ -87,7 +87,17 @@ switch ($params[0]) {
             $controller->eliminarCombo($params[1]);
            
         break;
-        //case 'formeditarchocolate':
+        case 'formeditarchocolate':
+            $controller=new UsuarioController();
+            if($params[1]=="guardarchocolateeditado"){
+              
+               $controller->guardarChocolateEditado();
+           
+            }
+            else {
+            $controller->mostrarformeditarChocolate($params[1]);
+            }
+           break;
           //  $controller=new UsuarioController();
             //if(isset($params[1])){
             //$controller->mostrarformeditarChocolate($params[1]);
@@ -100,24 +110,29 @@ switch ($params[0]) {
             
            // }
            // break;
-        case 'formeditarchocolate':
-            $controller=new UsuarioController();
-            $controller->mostrarformeditarChocolate();
+        //case 'formeditarchocolate':
+           // $controller=new UsuarioController();
+           // $controller->mostrarformeditarChocolate();
     
-           break;
-        case 'editarchocolate':
-           $controller=new UsuarioController();
-           if(isset($id)){
-           $controller->editarChocolate($id);
-            }
-         break;
+          // break;
+        //case 'editarchocolate':
+          // $controller=new UsuarioController();
+          // if(isset($id)){
+          // $controller->editarChocolate($id);
+           // }
+         //break;
          case 'eliminarchocolate':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'eliminarChocolate') {
-                $id = $_GET['id']; // Asegúrate de validar y sanitizar este valor
-                $controller = new UsuarioController();
+            $controller=new UsuarioController();
+              
+            $controller->eliminarChocolate($params[1]);
+           
+        break;
+            //if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'eliminarChocolate') {
+               // $id = $_GET['id']; // Asegúrate de validar y sanitizar este valor
+               // $controller = new UsuarioController();
                // $controller->eliminarChocolate($id);
-            }
-           break;
+           // }
+           //break;
     default:
         echo "404 not found";
         break;

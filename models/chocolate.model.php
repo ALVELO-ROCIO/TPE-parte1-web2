@@ -64,15 +64,15 @@ public function GetByIdChocolate() {
 }
 
 
-public function guardarChocolateEditado($sabor, $relleno, $empaque){
-        $sql = "UPDATE chocolate SET(SABOR, RELLENO, EMPAQUE) VALUES (?, ?, ?) WHERE id_chocolate"; 
-        $query = $this->bd->prepare($sql);
-        $query->execute([$sabor, $relleno, $empaque]);
+public function guardarChocolateEditado($id,$sabor, $relleno, $empaque){
+    $sentence=$this->bd->prepare("UPDATE chocolate SET SABOR= ?, RELLENO= ?,EMPAQUE= ? WHERE CHOCOLATE.ID= ?");
+    $sentence->execute([$id,$sabor, $relleno, $empaque]);
     }
+    
 
-public function eliminarChocolatePorId($id) {
-    $sql = "DELETE FROM chocolate WHERE id = ?";
-    $query = $this->bd->prepare($sql);
-    return $query->execute([$id]); 
+public function eliminarChocolate($id) {
+   $sentence=$this->bd->prepare("DELETE FROM chocolate WHERE chocolate.ID= ?");
+    $sentence->execute([$id]);
 }
 }
+    

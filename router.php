@@ -90,11 +90,12 @@ switch ($params[0]) {
         case 'formeditarchocolate':
             $controller=new UsuarioController();
             if($params[1]=="guardarchocolateeditado"){
-              
-               $controller->guardarChocolateEditado();
-           
+                
+            $controller->guardarChocolateEditado();
+    
             }
             else {
+        
             $controller->mostrarformeditarChocolate($params[1]);
             }
            break;
@@ -121,7 +122,7 @@ switch ($params[0]) {
           // $controller->editarChocolate($id);
            // }
          //break;
-         case 'eliminarchocolate':
+         case 'borrarchocolate':
             $controller=new UsuarioController();
               
             $controller->eliminarChocolate($params[1]);

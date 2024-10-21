@@ -171,6 +171,7 @@ public function guardarChocolateEditado(){
         $sabor = $_POST['sabor'];
         $relleno = $_POST['relleno'];
         $empaque = $_POST['empaque'];
+        var_dump($id);
 
         $this->chocolatemodel->guardarChocolateEditado($id,$sabor, $relleno, $empaque);
         header("Location: " . BASE_URL . 'paneldecontrol');
@@ -182,7 +183,6 @@ public function guardarChocolateEditado(){
     if ($this->verificarSiUsuarioLogueadoEsAdmin ()){
         // Obtener el chocolate por su ID
         $chocolate = $this->chocolatemodel->GetByIdChocolate($id);
-    
             // Mostrar el formulario para editar el chocolate si se encuentra
          $this->chocolateview->mostrarformeditarChocolate($chocolate);
         

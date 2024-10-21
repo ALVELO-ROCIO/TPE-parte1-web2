@@ -20,10 +20,10 @@
         <input name="empaque" type="text" required value= "{$chocolate->EMPAQUE}" >
 
         <button type="submit">guardar</button>
-        <a href="paneldecontrol" type="button">Cancelar</a>         
+        <a href="paneldecontrol" type="button">Cancelar</a>
         
-    </form> 
-    </div> 
+    </form>
+    </div>
     
     
     

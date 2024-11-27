@@ -55,7 +55,7 @@ public function GetByIdChocolate($id) {
    $query->execute([$id]);
 
     //Obtenemos el resultado
-    $chocolate = $query->fetch(PDO::FETCH_ASSOC);
+    $chocolate = $query->fetch(PDO::FETCH_OBJ);
 
     return $chocolate;
 }
@@ -63,9 +63,10 @@ public function GetByIdChocolate($id) {
 
 public function guardarChocolateEditado($id,$sabor, $relleno, $empaque){
     $sentence=$this->bd->prepare("UPDATE chocolate SET SABOR= ?, RELLENO= ?,EMPAQUE= ? WHERE CHOCOLATE.ID= ?");
-    $sentence->execute([$id,$sabor, $relleno, $empaque]);
+    $sentence->execute([$id,$sabor, $relleno, $empaque,$id]);
     }
-
+    
+    
 
 public function eliminarChocolate($id) {
    $sentence=$this->bd->prepare("DELETE FROM chocolate WHERE chocolate.ID= ?");

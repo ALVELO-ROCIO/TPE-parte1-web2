@@ -63,7 +63,7 @@ public function GetByIdChocolate($id) {
 
 public function guardarChocolateEditado($id,$sabor, $relleno, $empaque){
     $sentence=$this->bd->prepare("UPDATE chocolate SET SABOR= ?, RELLENO= ?,EMPAQUE= ? WHERE CHOCOLATE.ID= ?");
-    $sentence->execute([$id,$sabor, $relleno, $empaque,$id]);
+    $sentence->execute([$sabor, $relleno, $empaque,$id]);
     }
     
     

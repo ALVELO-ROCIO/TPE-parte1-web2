@@ -2,11 +2,13 @@
 
 require_once 'models/chocolate.model.php';
 require_once 'views/chocolates.view.php';
+require_once 'controllers/usuario.controller.php';
 
 
 class ChocolatesController {
 
     private $model;
+    private $usuarioController;
     private $view;
 
     public function __construct(){
@@ -14,12 +16,14 @@ class ChocolatesController {
         $this->model = new ChocoModel(); //arreglo de chocolates
         
         $this->view = new ChocoView();
+        $this->usuarioController = new UsuarioController();
     }
 
     public function mostrarChocolates(){
         //(Pedir al modelo todos los chocolaes)1. Pedirselo a la base de  datps ----> Modelo --> chocolate.model.php
         $chocolates =  $this->model->getChocolates(); //guardo en la variable lo que me trae el modelo de la bd
 
+        //$usuario = $this->usuarioController->verificarSiUsuarioLogueadoEsAdmin();
         //(Pasarle a la vista los chocolas )2. Una vez q lo tengo, enviarselos a la vista --> chocolate.view.php
         $this->view->mostrarChocolates($chocolates);
         //var_dump($chocolates);

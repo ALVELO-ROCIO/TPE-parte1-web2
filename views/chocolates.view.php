@@ -22,6 +22,7 @@ class ChocoView{
 
     function mostrarChocolates($chocolates){
         $this->getSmarty()->assign("chocolates", $chocolates);
+        //$this->getSmarty()->assign("usuario", $usuario);
         $this->getSmarty()->display('mostrarChocolates.tpl');
 
     }

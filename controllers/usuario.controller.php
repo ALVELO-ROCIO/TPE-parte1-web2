@@ -71,7 +71,7 @@ class UsuarioController {
             return false;
         }
     }
-    private function verificarSiUsuarioLogueadoEsAdmin (){
+    public function verificarSiUsuarioLogueadoEsAdmin (){
              session_start();
                  if (!$_SESSION['IS_LOGGED']== true) {
                      header("Location: " . BASE_URL . 'loggin'); 
@@ -91,8 +91,7 @@ class UsuarioController {
          if (!empty($_SESSION)) { //si la sesion es vacia signfica que se cerro 
             $_SESSION = [];
             session_destroy();
-            echo "La sesión se ha cerrado correctamente.";
-            
+            header("Location: " . BASE_URL . '/');
         } else { //la variable sesion tiene algo activ adentro
             echo "La sesión sigue activa.";
         }

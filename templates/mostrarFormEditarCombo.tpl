@@ -19,6 +19,6 @@
         </select>
        
         <button type="submit">Guardar</button>
-        <a href="paneldecontrol">Cancelar</a>         
+        <a href="/web2/TPE/TPE-parte1-web2/paneldecontrol">Cancelar</a>         
         </form>    
     </div>

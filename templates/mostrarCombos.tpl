@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Combos</title>
-</head>
-<body>
+
+{include "header.tpl"}
     <header">
         <h1>Listado de Combos</h1>
     </header>

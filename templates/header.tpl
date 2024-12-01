@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/web2/TPE/TPE-parte1-web2/">
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>ChocoAras</title>
@@ -16,8 +17,10 @@
                 <li><a href="home">Inicio</a></li>
                 <li><a href="chocolates">chocolates</a></li>
                 <li><a href="combos">combos</a></li>
+               
                 <li><a href="loggin">Login</a></li>
-            </ul>
+              
+            </ul>   
     </nav>
 </header>
 </div>
